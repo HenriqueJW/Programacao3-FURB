@@ -1,0 +1,85 @@
+body {
+    width: 900px;
+    margin: auto;
+    background-color: #cdf0ff;
+}
+
+header{
+    height: 150px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: #0066aa;
+    border-style: solid;
+    border-width: 7px;
+    border-color: #ff0000;
+}
+
+nav {
+    height: 70px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: #0066aa;
+    border-style: solid;
+    border-width: 7px;
+    border-color: #ff0000;
+}
+
+main {
+    height: 400px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: white;
+    border-style: solid;
+    border-width: 7px;
+    border-color: black;
+}
+
+footer {
+    height: 80px;
+    margin-bottom: 10px;
+    width: auto;
+    background-color: #0066aa;
+    border-style: solid;
+    border-width: 7px;
+    border-color: #ff0000;
+}
+
+
+
+#Titulo{
+    padding: 60px 0px;
+    width: 50%;
+    text-align: center;
+    margin: auto;    
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#Titulo2{
+    padding: 18px 0px;
+    width: 50%;
+    text-align: center;
+    margin: auto;    
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#Titulo3{
+    padding: 23px 0px;
+    width: 50%;
+    text-align: center;
+    margin: auto;    
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+#Titulo4{
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
