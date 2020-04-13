@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 900px;
+    margin: auto;
+    background-color: #cdf0ff;
+}
+
+a {
+    display: flex;
+    justify-content: center;
+}
+
+td {
+    background-color: darkcyan;
+    width: 200px;
+    height: 200px;
+}
+
+table:hover {
+    border-color: rgba(0, 0, 0, 100);
+}
+
+table {
+    border: solid;
+    border-width: 5px;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+img {
+    display: flex;
+    margin: auto;
+    height: 100px;
+    width: 100px;
+}
