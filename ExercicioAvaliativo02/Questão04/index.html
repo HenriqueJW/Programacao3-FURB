@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="javascript.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <section id="Filme 1">
+        <h1 class="Titulo"></h1>
+        <h1 class="Ano"></h1>
+        <h1 class="Genero"></h1>
+    </section>
+
+    <section id="Filme 2">
+        <h1 class="Titulo"></h1>
+        <h1 class="Ano"></h1>
+        <h1 class="Genero"></h1>
+    </section>
+
+    <section id="Filme 3">
+        <h1 class="Titulo"></h1>
+        <h1 class="Ano"></h1>
+        <h1 class="Genero"></h1>
+    </section>
+
+
+    <script>
+        listasecoes = document.getElementsByTagName("section");
+        listaFilmes = criaListaFilmes();
+
+        for(var i=0;i<listasecoes.length; i++){
+            listasecoes[i].getElementsByTagName("h1")[0].innerHTML = listaFilmes[i].titulo;
+            listasecoes[i].getElementsByTagName("h1")[1].innerHTML = listaFilmes[i].ano;
+            listasecoes[i].getElementsByTagName("h1")[2].innerHTML = listaFilmes[i].genero;
+        }
+        
+           
+        
+    </script>
+
+</body>
+
+
+</html>
