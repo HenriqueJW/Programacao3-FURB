@@ -4,198 +4,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="style.css">-->
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <!--<script type="text/javascript" src="javascript.js"></script>-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="script.js"></script>
     <title>Menes Suecos</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"
         integrity="sha256-r/AaFHrszJtwpe+tHyNi/XCfMxYpbsRg2Uqn0x3s2zc=" crossorigin="anonymous"></script>
-    <style>
-        .headerSL {
-            height: 140px;
-        }
 
-        .headerCL {
-            height: 175px;
-        }
-    </style>
 </head>
 
 <body>
-    <header class="w3-top w3-bar w3-black w3-card headerSL" id="cabeca">
-        <h1 class="w3-wide" style="margin-left: 10px;">Menes Suecos</h1>
-        <nav style="margin-left: 20px;">
-            <section>
-                <a href="#Introducao" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Introdução</a>
-            </section>
+    <header class="w3-top w3-black" id="cabecalho">
+        <h1 class="w3-wide" style="width:auto; margin-left: 20px;">Menes Suecos</h1>
+        <nav class="w3-bar w3-black w3-card" style="width: 100%; height: 46px;">
 
-            <section>
-                <a href="#Surgimento" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Surgimento</a>
-            </section>
+            <a href="#Introducao" class="w3-bar-item w3-button w3-padding-large">Introdução</a>
 
-            <section>
-                <a href="#Humor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Humor</a>
-            </section>
+            <a href="#Surgimento" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Surgimento</a>
 
-            <section>
+            <a href="#Humor" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Humor</a>
+
+            <nav class="w3-dropdown-hover w3-hide-small">
+
                 <a href="#Categorias" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Categorias</a>
-            </section>
 
-            <section>
-                <a href="#Recepcao" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Recepção</a>
-            </section>
+                <section class="w3-dropdown-content w3-bar-block w3-card-4">
+                    <a href="#Trocadilhos" class="w3-bar-item w3-button">Trocadilhos</a>
+                    <a href="#Referências" class="w3-bar-item w3-button">Referências</a>
+                    <a href="#Itens" class="w3-bar-item w3-button">Itens</a>
+                    <a href="#Aleatoriedades" class="w3-bar-item w3-button">Aleatoriedades</a>
+                </section>
 
+            </nav>
+
+
+            <a href="#Recepcao" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Recepção</a>
+
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="mostrarMenu()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+
+            <div id="menuPequeno" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
+                style="margin-top:120px">
+                <a href="#Surgimento" class="w3-bar-item w3-button w3-padding-large"
+                    onclick="mostrarMenu()">Surgimento</a>
+                <a href="#Humor" class="w3-bar-item w3-button w3-padding-large" onclick="mostrarMenu()">Humor</a>
+                <a href="#Categorias" class="w3-bar-item w3-button w3-padding-large"
+                    onclick="mostrarMenu()">Categorias</a>
+                <a href="#Recepcao" class="w3-bar-item w3-button w3-padding-large" onclick="mostrarMenu()">Recepcao</a>
+            </div>
         </nav>
-        <nav style="padding: 35px;">
-            <section id="Login_Label" style="display: block;">Login ↓</section>
-            <section id="Secao_Login" class="w3-bar-item">
-            <label for="Login">Login<span style="color: red;">*</span> </label>
-            <input type="text" name="Login *" id="Login">
-            <label for="Senha">Senha<span style="color: red;">*</span> </label>
-            <input type="password" name="Senha *" id="Senha">
-            <button>Entrar</button>
+
+
+        <section id="login">
+            <h6 id="Login_Label">Login ↓</h6>
+            <section id="Secao_Login" class="w3-bar-item"
+                style="display: flex; flex-wrap: wrap; height: auto; min-height: 69px;">
+
+                <div style="width: 280px;">
+                    <label for="Login" class="TextoLogin">Login<span style="color: red;">*</span> </label>
+                    <input type="text" style="float: right;" name="Login *" id="Login">
+                </div>
+
+                <div style="width: 280px;">
+                    <label for="Senha" class="TextoLogin">Senha<span style="color: red;">*</span> </label>
+                    <input type="password" style="float: right;" name="Senha *" id="Senha">
+                </div>
+
+
+                <div>
+                    <label for="Lembrar" class="TextoLogin" style="margin-right: 5px;">Lembrar-me</label>
+                    <input type="checkbox" name="Lembrar" id="Lembrar" style="margin-right: 20px;">
+                </div>
+
+                <button>Entrar</button>
+            </section>
         </section>
-        </nav>
-        
+
+
     </header>
 
     <script>
         $(document).ready(function () {
             $('#Secao_Login').hide()
-
-        })
-
-        $('#Login_Label').click(function () {
-            if ($('#Login_Label').text() == 'Login ↑') {
-                $('#Login_Label').text('Login ↓')
-                $('#cabeca').removeClass('headerCL')
-                $('#cabeca').addClass('headerSL')
-            } else {
-                $('#Login_Label').text('Login ↑')
-                $('#cabeca').removeClass('headerSL')
-                $('#cabeca').addClass('headerCL')
-            }
-            //$('#Login_Label').html('Login ↑')
-            $('#Secao_Login').toggle(500)
-
-
+            preparaLogin()
         })
 
 
     </script>
 
-    <main class="w3-content" style="max-width:2000px;margin-top:100px">
+    <main class="w3-content">
 
-        <section class="w3-container w3-content w3-center" style="padding-top: 128px;" id="Introducao">
-            <h1 id="TIntroducao" class="w3-wide">
-                Introdução
-            </h1>
-            <img src="Imagens/introducao.png">
-            <p>
-                Os "Menes Suecos" são um tipo de meme underground que surgiu por volta de 2016, em um grupo de
-                facebook e canal no youtube. O tipo de meme é muito variado e difere dos comuns pelo seu estilo próprio.
-            </p>
-        </section>
-
-        <section class="w3-container w3-content w3-center" style="padding-top: 128px;" id="Surgimento">
-            <h1>
-                Surgimento
-            </h1>
-            <img src="Imagens/surgimento.png" style="margin-top: -10px;">
-            <p>
-                Por volta de 2016, os memes começaram a surgir por meio de redes sociais e videos, rapidamente formando
-                sua
-                própria cultura e fãs dedicados. Tanto tirinhas quanto postagens e videos eram feitos e enviados pelas
-                várias plataformas
-                <br> por qualquer pessoa que estivesse no grupo aberto.
-            </p>
-        </section>
-
-        <section class="w3-container w3-content w3-center" style="padding-top: 128px;" id="Humor">
-            <h1>
-                Humor
-            </h1>
-            <img src="Imagens/humor.png" style="margin-top: -10px;">
-            <p>
-                O humor é caracterizado por piadas "nonsense" com um toque de referências históricas e aleatoriedades.
-                Geralmente a graça ocorre em forma de audio, visto
-                que as falas nos vídeos são lidas por uma voz robotizada de um aplicativo tradutor de linguas
-                estrangeiras lendo em português.
-            </p>
-        </section>
-
-        <section class="w3-container w3-content w3-center" style="padding-top: 128px;" id="Categorias">
-            <h1 >
-                Categorias
-            </h1>
-            <img src="Imagens/categorias.jpg" style="margin-top: -10px;">
-            <p>
-                As categorias dos memes podem variar, pois são feitos por um público variado. Ao longo do tempo <br>
-                algumas foram se consolidando e aparecendo em várias ocasiões. As principais categorias são:
-            </p>
-            <h2>Trocadilhos</h2>
-            <p>Os trocadilhos são basicamente as piadas comuns ocasionais, fazendo troca de sentidos de palavras e
-                imagens.</p>
-            <img src="Imagens/categoria_trocadilhos.png">
-            <img src="Imagens/categoria_trocadilhos_2.png">
-            <h2>Referências</h2>
-            <p>As referências ocorrem de forma em que, quando assistido/visto o mene conta ou referencia algum
-                acontecimento famoso de forma diferente
-                <br> do usual, referências históricas são as mais comuns e variam desde a tomada de jerusalém ná época
-                das cruzadas até a revolução russa.
-                <br> Acontecimentos atuais também podem ser representados.
-            </p>
-            <img src="Imagens/categoria_referencias_1.png">
-            <img src="Imagens/categoria_referencias_2.png">
-            <img src="Imagens/categoria_referencias_3.png">
-            <h2>Itens</h2>
-            Os itens são objetos encontrados ao longo do vídeo, que aparentemente, possuem poderes (atuando como as
-            antigas correntes)
-            <br> e afirmam que se o espectador não realizar um determinado número de tarefas, algo irá acontecer (De bom
-            ou ruim).
-            <br>
-            <img src="Imagens/itens_papel.jpg">
-            <h2>Aleatoriedades</h2>
-            As aleatoriedades podem variar muito. Há videos em que tanta coisa acontece na tela que o espectador pode
-            não conseguir entender o que se passa.
-            <br> Outros memes podem ser incorporados na tirinha, dando um sentido completamente diferente aos mesmos.
-            <img src="Imagens/aleatoriedades_1.png">
-
+        <a class="Ancora" id="Introducao" style="margin-top: 100px;"></a>
+        <section class="zig">
+            <section class="w3-container w3-content w3-center" style="padding-top: 32px;">
+                <h1 id="TIntroducao" class="w3-wide">
+                    Introdução
+                </h1>
+                <img src="Imagens/introducao.png" class="imagem_principal">
+                <p>
+                    Os "Menes Suecos" são um tipo de meme underground que surgiu por volta de 2016, em um grupo de
+                    facebook e canal no youtube. O tipo de meme é muito variado e difere dos comuns pelo seu estilo
+                    próprio.
+                </p>
+            </section>
         </section>
 
 
-        <section class="w3-container w3-content w3-center" style="padding-top: 128px;" id="Recepcao">
-            <h1 >
-                Recepção
-            </h1>
-            <img src="Imagens/recepcao.png" style="margin-top: -10px;">
-            <p>
-                Atualmente o canal principal de Menes Suecos no youtube possui mais de 80 mil inscritos e mais de 10
-                milhões de
-                visualizações totais.<br> A tração do canal se deu a partir do ano de 2018, e desde então, as
-                visualizações aumentaram bastante, com uma comunidade
-                <br> muito ativa e participante também nos comentários, criando piadas próprias e referenciando antigos
-                menes.
-            </p>
+        <section class="zag">
+            <section class="w3-container w3-content w3-center">
+                <a class="Ancora" id="Surgimento" style="margin-top: 100px;"></a>
+                <h1 style="color: white;">
+                    Surgimento
+                </h1>
+                <img src="Imagens/surgimento.png" style="margin-top: -10px;" class="imagem_principal">
+                <p style="color: white;">
+                    Por volta de 2016, os memes começaram a surgir por meio de redes sociais e videos, rapidamente
+                    formando
+                    sua
+                    própria cultura e fãs dedicados. Tanto tirinhas quanto postagens e videos eram feitos e enviados
+                    pelas
+                    várias plataformas
+                    por qualquer pessoa que estivesse no grupo aberto.
+                </p>
+            </section>
         </section>
 
-        <section class="w3-container w3-content w3-center w3-padding-64">
-            <h1>Envie seu Mene</h1>
-            Tem alguma idéia de um mene sueco novo? Envie para nós a imagem e ela pode ser apresentada neste site com o
-            seu nome embaixo!
-            <form>
-                <label for="Nome">Nome *</label>
-                <input type="text" name="Nome" id="Nome">
-                <label for="E-mail">E-mail *</label>
-                <input type="email" name="E-mail" id="E-mail">
-                <label for="Arquivo">Arquivo *</label>
-                <input type="file" name="Arquivo" id="Arquivo">
-                <button>Enviar</button>
-            </form>
+
+        <section class="zig">
+            <section class="w3-container w3-content w3-center">
+                <a class="Ancora" id="Humor" style="margin-top: 100px;"></a>
+                <h1>
+                    Humor
+                </h1>
+                <img src="Imagens/humor.png" style="margin-top: -10px;" class="imagem_principal">
+                <p>
+                    O humor é caracterizado por piadas "nonsense" com um toque de referências históricas e
+                    aleatoriedades.
+                    Geralmente a graça ocorre em forma de audio, visto
+                    que as falas nos vídeos são lidas por uma voz robotizada de um aplicativo tradutor de linguas
+                    estrangeiras lendo em português.
+                </p>
+            </section>
+        </section>
+
+
+        <section class="zag">
+            <section class="w3-container w3-content w3-center">
+                <a class="Ancora" id="Categorias" style="margin-top: 100px;"></a>
+                <h1 style="color: white;">
+                    Categorias
+                </h1>
+                <img src="Imagens/categorias.jpg" style="margin-top: -10px;" class="imagem_principal">
+                <p style="color: white;">
+                    As categorias dos memes podem variar, pois são feitos por um público variado. Ao longo do tempo
+                    algumas foram se consolidando e aparecendo em várias ocasiões. As principais categorias são:
+                </p>
+
+                <a class="Ancora" id="Trocadilhos" style="margin-top: 100px;"></a>
+                <h2 class="w3-lime" style="color: white;">Trocadilhos</h2>
+                <p style="color: white;">Os trocadilhos são basicamente as piadas comuns ocasionais, fazendo troca de
+                    sentidos de palavras e
+                    imagens.</p>
+                <img src="Imagens/categoria_trocadilhos.png" class="imagem_principal">
+                <img src="Imagens/categoria_trocadilhos_2.png" class="imagem_principal">
+
+                <a class="Ancora" id="Referências" style="margin-top: 100px;"></a>
+                <h2 style="color: white;" class="w3-deep-orange" id="Referências">Referências</h2>
+                <p style="color: white;">As referências ocorrem de forma em que, quando assistido/visto o mene conta ou
+                    referencia algum
+                    acontecimento famoso de forma diferente
+                    do usual, referências históricas são as mais comuns e variam desde a tomada de jerusalém ná
+                    época
+                    das cruzadas até da revolução russa.
+                    Acontecimentos atuais também podem ser representados.
+                </p>
+                <img src="Imagens/categoria_referencias_1.png" class="imagem_principal">
+                <img src="Imagens/categoria_referencias_2.png" class="imagem_principal">
+                <img src="Imagens/categoria_referencias_3.png" class="imagem_principal">
+
+                <a class="Ancora" id="Itens" style="margin-top: 100px;"></a>
+                <h2 class="w3-indigo" style="color: white;" id="Itens">Itens</h2>
+                <p style="color: white;">
+                    Os itens são objetos encontrados ao longo do vídeo, que aparentemente, possuem poderes (atuando como
+                    as
+                    antigas correntes)
+                    e afirmam que se o espectador não realizar um determinado número de tarefas, algo irá acontecer
+                    (De bom
+                    ou ruim).
+                </p>
+                <img src="Imagens/itens_papel.jpg" class="imagem_principal">
+
+                <a class="Ancora" id="Aleatoriedades" style="margin-top: 100px;"></a>
+                <h2 class="w3-pink" style="color: white;" id="Aleatoriedades">Aleatoriedades</h2>
+                <p style="color: white;">
+                    As aleatoriedades podem variar muito. Há videos em que tanta coisa acontece na tela que o espectador
+                    pode
+                    não conseguir entender o que se passa.
+                    Outros memes podem ser incorporados na tirinha, dando um sentido completamente diferente aos
+                    mesmos.
+                </p>
+                <img src="Imagens/aleatoriedades_1.png" class="imagem_principal">
+
+            </section>
+        </section>
+
+
+        <section class="zig">
+
+            <section class="w3-container w3-content w3-center" style="padding-top: 32px;">
+                <a class="Ancora" id="Recepcao"></a>
+                <h1>
+                    Recepção
+                </h1>
+                <img src="Imagens/recepcao.png" style="margin-top: -10px;" class="imagem_principal" d>
+                <p>
+                    Atualmente o canal principal de Menes Suecos no youtube possui mais de 80 mil inscritos e mais de 10
+                    milhões de
+                    visualizações totais. A tração do canal se deu a partir do ano de 2018, e desde então, as
+                    visualizações aumentaram bastante, com uma comunidade
+                    muito ativa e participante também nos comentários, criando piadas próprias e referenciando
+                    antigos
+                    menes.
+                </p>
+            </section>
+        </section>
+
+        <section class="zag">
+            <section class="w3-container w3-content w3-center">
+                <h1 style="color: white;">Envie seu Mene</h1>
+                <p style="color: white;">
+                    Tem alguma idéia de um mene sueco novo? Envie para nós a imagem e ela pode ser apresentada neste
+                    site com o
+                    seu nome embaixo!
+                </p>
+                <form class="w3-hide-medium w3-hide-large" style="color: white;" id="Formulario_Envio">
+
+
+
+                    <div class="w3-half">
+                        <label for="Nome" style="float: left;">Nome <span style="color: red;">*</span></label>
+                        <input type="text" style="float: right;" name="Nome" id="Nome" required>
+                    </div>
+
+                    <div class="w3-half">
+                        <label for="E-mail" style="float: left;">E-mail <span style="color: red;">*</span></label>
+                        <input type="email" style="float: right;" name="E-mail" id="E-mail" required>
+                    </div>
+
+
+
+                    <div class="w3-half" style="display: flex; flex-direction: column;">
+                        <label for="Arquivo" style="float: left; display: block;">Arquivo <span
+                                style="color: red;">*</span></label>
+                        <input type="file" name="Arquivo" id="Arquivo" style="font-size: 10px;" required>
+                    </div>
+
+
+
+
+
+                </form>
+
+
+                <form class="w3-hide-small" style="color: white; display: block;" id="Formulario_Envio2">
+
+
+
+                    <div class="w3-half">
+                        <label for="Nome2" style="float: left;">Nome <span style="color: red;">*</span></label>
+                        <input type="text" style="float: left;" name="Nome2" id="Nome2" required>
+                    </div>
+
+                    <div class="w3-half">
+                        <label for="E-mail2" style="float: right;">E-mail <span style="color: red;">*</span></label>
+                        <input type="email" style="float: right;" name="E-mail2" id="E-mail2" required>
+                    </div>
+
+
+
+                    <div class="w3-half">
+                        <label for="Arquivo2" style="float: left;">Arquivo <span style="color: red;">*</span></label>
+                        <input type="file" name="Arquivo2" id="Arquivo2" style="font-size: 10px;" required>
+                    </div>
+
+
+
+
+
+                </form>
+
+                <section class="w3-quarter w3-hide-large w3-hide-medium" style="display: block; width: 100%;">
+                    <button style="margin-top: 10px; " onclick="limparCampos()">Cancelar</button>
+                    <button style="margin-top: 10px;" type="submit" form="Formulario_Envio">Enviar</button>
+                </section>
+
+                <section class="w3-quarter w3-hide-small" style="display: block; width: 100%;">
+                    <button style="margin-top: 10px; " onclick="limparCampos()">Cancelar</button>
+                    <button style="margin-top: 10px;" type="submit" form="Formulario_Envio2">Enviar</button>
+                </section>
+            </section>
         </section>
 
         <footer>
-            Cabeçalho
+            Criado por Henrique José Wilbert e Célio Rodrigues Junior
         </footer>
 
     </main>

@@ -1,0 +1,59 @@
+.headerSL {
+    height: 145px;
+}
+
+.headerCL {
+    height: 210px;
+}
+
+.TextoLogin {
+    margin-left: 10px;  
+}
+
+
+#Login_Label {
+    text-align: center;
+    background-color: rgb(70, 70, 70);
+    margin: 0px;
+}
+
+
+
+#Secao_Login {
+    justify-content: left;
+    display: flex;
+    align-items: center;
+    background-color: rgb(70, 70, 70);
+    padding: 10px 0px 0px 0px;
+    height: 69px;
+    width: 100%;
+}
+
+.imagem_principal {
+    width: 100%;
+    height: auto;
+    border: 5px black solid;
+}
+
+.zig {
+    
+    width: 100%;
+    padding: 20px 0px 20px;
+    background-color: rgb(255, 255, 255);
+}
+
+.zag {
+    
+    width: 100%;
+    
+    background-color: rgb(0, 0, 0)
+}
+
+
+a.Ancora {
+    display: block;
+    position: relative;
+    top: -144px;
+    visibility: hidden;
+}
+
