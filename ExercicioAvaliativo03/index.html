@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.maskMoney.js" type="text/javascript"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section id="AdicionarEmpregado">
+        <h1 id="Titulo">Adicionando novo Empregado</h1>
+
+        <form id="FormularioEnvio">
+        <div class="DuplaInput">
+            <label class="label" for="Nome">Nome:</label>
+            <input class="input" type="text" placeholder="Nome" name="Nome" id="Nome" required>
+        </div>
+
+        <div class="DuplaInput">
+            <label class="label" for="Salario">Salário:</label>
+            <input class="input" type="text" placeholder="R$ 0,00" name="Salario" id="Salario" required>
+        </div>
+
+        <div class="DuplaInput">
+            <label class="label" for="Idade">Idade:</label>
+            <input class="input" type="number" step="1" value="0" name="Idade" id="Idade" required>
+        </div>
+
+        <div class="DuplaInput">
+            <label class="label" for="Nome">Avatar:</label>
+            <input class="input" type="url" name="Avatar" placeholder="http://url.do.avatar" id="Avatar" required>
+        </div>
+
+        
+        
+    </form>
+    <input type="submit" form="FormularioEnvio" name="Salvar" value="Salvar">
+
+        
+        <input type="button" name="Cancelar" value="Cancelar" onclick="limparCampos()">
+    </section>
+
+    <table id="TabelaEmpregados">
+        <tr id="CabecalhoTabela">
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Salário</th>
+            <th>Idade</th>
+            <th>Avatar</th>
+            <th>Ações</th>
+        </tr>
+    </table>
+
+    
+
+
+
+
+
+
+
+    <script>
+    
+        $("#Salario").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true });
+        $.ajaxSetup({timeout:20000});
+
+        $.get("http://dummy.restapiexample.com/api/v1/employees", function (resp, status) {
+
+
+            if (status == 'success') {
+                criaTabela(resp);
+            }
+
+            
+            
+            
+
+        });
+    </script>
+</body>
+
+</html>

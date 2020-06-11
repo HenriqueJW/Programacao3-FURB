@@ -1,0 +1,61 @@
+#Salario {
+  -webkit-appearance: none;
+
+}
+
+#Titulo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+#Salario {
+  -moz-appearance: textfield;
+}
+
+#AdicionarEmpregado {
+    width: 30%;
+    height: 50%;
+    margin: 100px auto;
+    border: 4px solid black;
+
+}
+
+.input {
+   border: 1px solid black;
+    border-radius: 5px;
+    height: 25px;
+    width: 250px;
+    margin-right: 50px;
+}
+
+.label {
+    margin-left: 25px;
+}
+
+.DuplaInput {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#TabelaEmpregados {
+    border-spacing: 0px;
+    width: 75%;
+    margin: auto;
+    /* border: 3px solid black; */
+}
+
+td, tr, th {
+    border: 2px solid black;
+}
+
+#CabecalhoTabela {
+    background-color: grey;
+}
+
+p {
+    display: inline;
+}
