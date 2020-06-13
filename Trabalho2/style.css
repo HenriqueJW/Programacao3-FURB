@@ -1,9 +1,14 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
 #Salario {
   -webkit-appearance: none;
 
 }
 
 #Titulo {
+    padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +22,10 @@
 #AdicionarEmpregado {
     width: 30%;
     height: 50%;
-    margin: 100px auto;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
     border: 4px solid black;
 
 }
@@ -35,6 +43,7 @@
 }
 
 .DuplaInput {
+    padding-top: 8px;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -42,14 +51,13 @@
 }
 
 #TabelaEmpregados {
-    border-spacing: 0px;
-    width: 75%;
+    border-collapse: collapse;
     margin: auto;
-    /* border: 3px solid black; */
 }
 
-td, tr, th {
-    border: 2px solid black;
+td, th {
+    padding: 7px;
+    border: 1px solid black;
 }
 
 #CabecalhoTabela {
@@ -58,4 +66,27 @@ td, tr, th {
 
 p {
     display: inline;
+}
+
+#botoesEscolha {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.botaoEdicao {
+    color: blue;
+}
+
+.botaoEdicao {
+    cursor: pointer;
+}
+
+#AtualizarTabela {
+    margin-bottom: 20px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
 }

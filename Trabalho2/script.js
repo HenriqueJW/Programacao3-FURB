@@ -11,6 +11,8 @@ function atualizaTabela() {
         if (status == 'success') {
             desfazTabela();
             criaTabela(resp);
+        }else{
+            alert("Não foi possível se comunicar com a API")
         }
 
 
@@ -20,8 +22,8 @@ function atualizaTabela() {
     });
 }
 
-function desfazTabela(){
-    $("#TabelaEmpregados").remove(".LinhaConteudo");
+function desfazTabela() {
+    $("#TabelaEmpregados tbody .LinhaConteudo").empty();
 }
 
 function criaTabela(resp) {
@@ -51,7 +53,7 @@ function criaTabela(resp) {
         coluna = document.createElement("td")
         linha.append(coluna);
         imagem = document.createElement("img")
-        imagem.setAttribute("src", empregados[i].profile_image)
+        imagem.setAttribute("src", empregados[i].profile_imagem)
         imagem.setAttribute("alt", "Avatar do Empregado")
         coluna.append(imagem)
 
@@ -68,8 +70,10 @@ function criaTabela(resp) {
             editarEmpregado($(this).parent().siblings().first().text())
         });
 
-        $(excluir).click(function () { excluirEmpregado() });
+        $(excluir).click(function () { excluirEmpregado($(this).parent().siblings().first().text(), $(this).parent().siblings().eq(1).text()) });
 
+        editar.classList.add("botaoEdicao");
+        excluir.classList.add("botaoEdicao");
         colunaEditar.append(editar, divisor, excluir);
         linha.append(colunaEditar);
     }
@@ -97,38 +101,71 @@ function editarEmpregado(id) {
     });
 }
 
-function excluirEmpregado() {
-    console.log("a")
+function excluirEmpregado(id, nome) {
+
+    if (confirm("Deseja excluir o empregado " + nome + "?")) {
+        $.ajax({
+            url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/delete/" + id, type: "DELETE"
+            , success: function (result) {
+                atualizaTabela();
+            }
+        });
+    } else {
+
+    }
+
 }
 
 function criaEdita() {
 
-    var empregado = {
-        "name": $("#Nome").val(),
-        "salary": $("#Salario").val(),
-        "age": $("#Idade").val()
-    }
+    if (validaCampos()) {
+        var empregado = {
+            "name": $("#Nome").val(),
+            "salary": $("#Salario").val(),
+            "age": $("#Idade").val(),
+            "profile_image": $("#Avatar").val()
+        }
 
+        if ($("#AdicionarEmpregado").find("h1").text() == "Adicionando novo Empregado") {
 
+            $.ajax({
+                url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/create", type: "POST", data:
+                    JSON.stringify(empregado), success: function (result) {
     
-
-    if ($("#AdicionarEmpregado").find("h1").text() == "Adicionando novo Empregado") {
-        $.post("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/create",
-            JSON.stringify(empregado), function (resp, status) {
-                if (status == "success") {
-
+                        atualizaTabela();
+    
+                    }, contentType: "application/json"
+            });
+        } else {
+            $.ajax({
+                url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/update/" + $("#IdCarregado").val(), type: "PUT", data:
+                    JSON.stringify(empregado)
+                , success: function (result) {
                     atualizaTabela();
                 }
+                , contentType: "application/json"
             });
-    } else {
-        $.ajax({
-            url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/update/" + $("#IdCarregado").val(), type: "PUT", data:
-                JSON.stringify(empregado)
-            , success: function (result) {
-                atualizaTabela();
-                console.log("sucesso");
-            }
-        });
+    
+        }
 
+    }else{
+        alert("Preencha todos os campos");
     }
+}
+
+
+
+
+
+function validaCampos() {
+    var a = document.forms["0"]["1"].value;
+    var b = document.forms["0"]["2"].value;
+    var c = document.forms["0"]["3"].value;
+
+    if (a == null || a == "" || b == null || b == ""|| c == null || c == "") {
+        return false;
+    } else {
+        return true;
+    }
+
 }

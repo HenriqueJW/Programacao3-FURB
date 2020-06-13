@@ -45,11 +45,17 @@
         
         
     </form>
-    <input type="submit" name="Salvar" value="Salvar" onclick="criaEdita()">
 
-        
-        <input type="button" name="Cancelar" value="Cancelar" onclick="limparCampos()">
+    <div id="botoesEscolha">
+    <input type="submit" name="Salvar" value="Salvar" onclick="criaEdita()">
+    <input type="button" name="Cancelar" value="Cancelar" onclick="limparCampos()">
+    </div>
+
     </section>
+
+    
+        <button id="AtualizarTabela" onclick="atualizaTabela()">Atualizar tabela</button>
+    
 
     <table id="TabelaEmpregados">
         <tr id="CabecalhoTabela">
