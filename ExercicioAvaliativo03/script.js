@@ -1,7 +1,28 @@
 function limparCampos() {
+
     $('#FormularioEnvio').find('input').val("");
+    $("#AdicionarEmpregado").find("h1").text("Adicionando novo Empregado");
 }
 
+function atualizaTabela() {
+    $.get("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/employees", function (resp, status) {
+
+
+        if (status == 'success') {
+            desfazTabela();
+            criaTabela(resp);
+        }
+
+
+
+
+
+    });
+}
+
+function desfazTabela(){
+    $("#TabelaEmpregados").remove(".LinhaConteudo");
+}
 
 function criaTabela(resp) {
     var empregados = resp.data;
@@ -31,6 +52,7 @@ function criaTabela(resp) {
         linha.append(coluna);
         imagem = document.createElement("img")
         imagem.setAttribute("src", empregados[i].profile_image)
+        imagem.setAttribute("alt", "Avatar do Empregado")
         coluna.append(imagem)
 
         var colunaEditar = document.createElement("td");
@@ -54,20 +76,59 @@ function criaTabela(resp) {
 }
 
 function editarEmpregado(id) {
-    $.get("http://dummy.restapiexample.com/api/v1/employee/11", function (resp, status) {
+    $.get("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/employee/" + id, function (resp, status) {
 
-    console.log(resp)
+
         if (status == 'success') {
-            $("#AdicionarEmpregado").find("h1").text("Editando Empregado");
+            $("#AdicionarEmpregado").find("h1").text("Editando Empregado " + resp.data.employee_name);
+            $("#Nome").val(resp.data.employee_name);
+
+
+            $("#Salario").val(resp.data.employee_salary);
+            $("#Idade").val(resp.data.employee_age);
+            $("#Avatar").val(resp.data.profile_image);
+            $("#IdCarregado").val(resp.data.id);
         }
 
-        
-        
-        
+
+
+
 
     });
 }
 
 function excluirEmpregado() {
     console.log("a")
+}
+
+function criaEdita() {
+
+    var empregado = {
+        "name": $("#Nome").val(),
+        "salary": $("#Salario").val(),
+        "age": $("#Idade").val()
+    }
+
+
+    
+
+    if ($("#AdicionarEmpregado").find("h1").text() == "Adicionando novo Empregado") {
+        $.post("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/create",
+            JSON.stringify(empregado), function (resp, status) {
+                if (status == "success") {
+
+                    atualizaTabela();
+                }
+            });
+    } else {
+        $.ajax({
+            url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/update/" + $("#IdCarregado").val(), type: "PUT", data:
+                JSON.stringify(empregado)
+            , success: function (result) {
+                atualizaTabela();
+                console.log("sucesso");
+            }
+        });
+
+    }
 }

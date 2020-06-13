@@ -15,9 +15,13 @@
 <body>
 
     <section id="AdicionarEmpregado">
+        
         <h1 id="Titulo">Adicionando novo Empregado</h1>
 
         <form id="FormularioEnvio">
+
+        <input type="hidden" id="IdCarregado" name="IdCarregado" value="">
+
         <div class="DuplaInput">
             <label class="label" for="Nome">Nome:</label>
             <input class="input" type="text" placeholder="Nome" name="Nome" id="Nome" required>
@@ -30,18 +34,18 @@
 
         <div class="DuplaInput">
             <label class="label" for="Idade">Idade:</label>
-            <input class="input" type="number" step="1" value="0" name="Idade" id="Idade" required>
+            <input class="input" type="number" step="1" value="0" placeholder="0" name="Idade" id="Idade" required>
         </div>
 
         <div class="DuplaInput">
             <label class="label" for="Nome">Avatar:</label>
-            <input class="input" type="url" name="Avatar" placeholder="http://url.do.avatar" id="Avatar" required>
+            <input class="input" type="url" name="Avatar" placeholder="http://url.do.avatar" id="Avatar">
         </div>
 
         
         
     </form>
-    <input type="submit" form="FormularioEnvio" name="Salvar" value="Salvar">
+    <input type="submit" name="Salvar" value="Salvar" onclick="criaEdita()">
 
         
         <input type="button" name="Cancelar" value="Cancelar" onclick="limparCampos()">
@@ -68,21 +72,11 @@
 
     <script>
     
-        $("#Salario").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true });
+        // $("#Salario").maskMoney({ prefix: 'R$ ', allowNegative: true, thousands: '.', decimal: ',', affixesStay: true });
         $.ajaxSetup({timeout:20000});
 
-        $.get("http://dummy.restapiexample.com/api/v1/employees", function (resp, status) {
-
-
-            if (status == 'success') {
-                criaTabela(resp);
-            }
-
-            
-            
-            
-
-        });
+        atualizaTabela();
+        
     </script>
 </body>
 
