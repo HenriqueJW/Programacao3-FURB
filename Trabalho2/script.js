@@ -5,7 +5,7 @@ function limparCampos() {
 }
 
 function atualizaTabela() {
-    $.get("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/employees", function (resp, status) {
+    $.get("https://rest-api-employees.jmborges.site/api/v1/employees", function (resp, status) {
 
 
         if (status == 'success') {
@@ -53,7 +53,7 @@ function criaTabela(resp) {
         coluna = document.createElement("td")
         linha.append(coluna);
         imagem = document.createElement("img")
-        imagem.setAttribute("src", empregados[i].profile_imagem)
+        imagem.setAttribute("src", empregados[i].profile_image)
         imagem.setAttribute("alt", "Avatar do Empregado")
         coluna.append(imagem)
 
@@ -80,7 +80,7 @@ function criaTabela(resp) {
 }
 
 function editarEmpregado(id) {
-    $.get("https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/employee/" + id, function (resp, status) {
+    $.get("https://rest-api-employees.jmborges.site/api/v1/employee/" + id, function (resp, status) {
 
 
         if (status == 'success') {
@@ -105,7 +105,7 @@ function excluirEmpregado(id, nome) {
 
     if (confirm("Deseja excluir o empregado " + nome + "?")) {
         $.ajax({
-            url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/delete/" + id, type: "DELETE"
+            url: "https://rest-api-employees.jmborges.site/api/v1/delete/" + id, type: "DELETE"
             , success: function (result) {
                 atualizaTabela();
             }
@@ -129,7 +129,7 @@ function criaEdita() {
         if ($("#AdicionarEmpregado").find("h1").text() == "Adicionando novo Empregado") {
 
             $.ajax({
-                url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/create", type: "POST", data:
+                url: "https://rest-api-employees.jmborges.site/api/v1/create", type: "POST", data:
                     JSON.stringify(empregado), success: function (result) {
     
                         atualizaTabela();
@@ -137,8 +137,9 @@ function criaEdita() {
                     }, contentType: "application/json"
             });
         } else {
+            
             $.ajax({
-                url: "https://us-central1-rest-api-employees.cloudfunctions.net/api/v1/update/" + $("#IdCarregado").val(), type: "PUT", data:
+                url: "https://rest-api-employees.jmborges.site/api/v1/update/" + $("#IdCarregado").val(), type: "PUT", data:
                     JSON.stringify(empregado)
                 , success: function (result) {
                     atualizaTabela();
